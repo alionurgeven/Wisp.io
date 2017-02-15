@@ -35,4 +35,11 @@ public class Managers : MonoBehaviour
         levelManager = GetComponent<LevelManager>();
         abilityManager = GetComponent<AbilityManager>();
     }
+
+    // Getter only properties for the managers
+    public UIManager UIManager { get { return uiManager; } }
+    public PoolManager PoolManager { get { return PoolManager; } }
+    public GameManager GameManager { get { return gameManager; } }
+    public LevelManager LevelManager { get { return levelManager; } }
+    public AbilityManager AbilityManager { get { return abilityManager; } }
 }
