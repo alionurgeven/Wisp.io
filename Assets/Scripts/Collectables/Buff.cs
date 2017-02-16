@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoostPiece : MonoBehaviour {
+public class Buff : Collectable {
 
 	// Use this for initialization
 	void Start () {
