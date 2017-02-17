@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-
+[InitializeOnLoad]
 public class ConstantsWindow : EditorWindow
 {
     Color col = Color.white;
@@ -10,12 +10,9 @@ public class ConstantsWindow : EditorWindow
     int removeIndex;
     List<Color> colorList = Constants.colorList;
 
-    
-    static void Init()
+    static ConstantsWindow()
     {
-        //ConstantsWindow cw = (ConstantsWindow)EditorWindow.GetWindow(typeof(ConstantsWindow));
-        //cw.Show();
-        Constants.colorList.Add(Color.white);
+        Constants.colorList.Add(Color.magenta);
     }
 
     [MenuItem("Window/Constants Window")]
