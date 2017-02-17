@@ -105,7 +105,7 @@ public class PoolManager : MonoBehaviour
 
         if (pool == null)
         {
-            //Debug.LogErrorFormat("Cannot find the object pool with name %s", poolName);
+            Debug.LogErrorFormat("Cannot find the object pool with name %s", poolName);
 
             return null;
         }
@@ -115,19 +115,14 @@ public class PoolManager : MonoBehaviour
 
         if (clone == null)
         {
-            //Debug.LogError("Scene contains maximum number of instances.");
+            Debug.LogError("Scene contains maximum number of instances.");
 
             return null;
         }
 
 		// Spawn the gameobject
         clone.SetActive(true);
-        if (poolName == "Pieces" || poolName == "NaturalPieces" || poolName == "JellyBlobs")
-        {
-            activeList.Add(clone.transform);
-        }
         
-
         return clone;
     }
 
@@ -144,7 +139,6 @@ public class PoolManager : MonoBehaviour
 		// Spawn the gameobject
         GameObject clone = Spawn(poolName);
         
-
 		// Set its position and rotation
         if (clone != null)
         {
@@ -184,23 +178,9 @@ public class PoolManager : MonoBehaviour
 	/// <param name="obj">Gameobject to despawn</param>
     public void Despawn(GameObject obj)
     {
-        if (obj.tag == "Piece")
-        {
-            activeList.Remove(obj.transform);
-        }
-        if (obj.tag == "JellyFish")
-        {
-            StartCoroutine(dieRoutine());
-        }
         obj.SetActive(false);
     }
-    Vector3 spawnPosition;
-    IEnumerator dieRoutine()
-    {
-        yield return new WaitForSeconds(1f);
-        spawnPosition = new Vector3(Random.Range(GameManager.Instance.min_x_position + 20, GameManager.Instance.max_x_position -20), Random.Range(GameManager.Instance.min_y_position+20, GameManager.Instance.max_y_position-20), 1);
-        Spawn("JellyFishes", spawnPosition, Quaternion.identity);
-    }
+
     /// <summary>
     /// Despawn the given gameobject with a delay
     /// </summary>
