@@ -19,3 +19,4 @@ C:\Users\Alonge\Documents\Wisp.io\Wisp.io\Temp\bin\Debug\UnityEngine.Networking.
 C:\Users\Alonge\Documents\Wisp.io\Wisp.io\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Alonge\Documents\Wisp.io\Wisp.io\obj\Debug\Assembly-CSharp.dll
 C:\Users\Alonge\Documents\Wisp.io\Wisp.io\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Alonge\Documents\Wisp.io\Wisp.io\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
