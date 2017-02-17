@@ -10,6 +10,7 @@ public class Managers : MonoBehaviour
     private PoolManager poolManager;
     private GameManager gameManager;
     private LevelManager levelManager;
+    private EventManager eventManager;
     private AbilityManager abilityManager;
 
     /// <summary>
@@ -33,6 +34,7 @@ public class Managers : MonoBehaviour
         poolManager = GetComponent<PoolManager>();
         gameManager = GetComponent<GameManager>();
         levelManager = GetComponent<LevelManager>();
+        eventManager = GetComponent<EventManager>();
         abilityManager = GetComponent<AbilityManager>();
     }
 
@@ -41,5 +43,6 @@ public class Managers : MonoBehaviour
     public PoolManager PoolManager { get { return PoolManager; } }
     public GameManager GameManager { get { return gameManager; } }
     public LevelManager LevelManager { get { return levelManager; } }
+    public EventManager EventManager { get { return eventManager; } }
     public AbilityManager AbilityManager { get { return abilityManager; } }
 }
