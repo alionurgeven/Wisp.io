@@ -1,7 +1,7 @@
-﻿//C# Example
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
+
 
 public class ConstantsWindow : EditorWindow
 {
@@ -9,15 +9,24 @@ public class ConstantsWindow : EditorWindow
 
     int removeIndex;
     List<Color> colorList = Constants.colorList;
+
     
+    static void Init()
+    {
+        //ConstantsWindow cw = (ConstantsWindow)EditorWindow.GetWindow(typeof(ConstantsWindow));
+        //cw.Show();
+        Constants.colorList.Add(Color.white);
+    }
+
     [MenuItem("Window/Constants Window")]
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(ConstantsWindow));
     }
-
+    
     void OnGUI()
     {
+        
         removeIndex = Constants.colorList.Count - 1;
         GUILayout.Label("Color List", EditorStyles.boldLabel);
 

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Debuff : Collectable {
+    // TODO : Debuff minion reverse rotation
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // TODO : Debuff player yavaslayabilir ?
+
+    private void OnEnable()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        //GetComponent<SpriteRenderer>().color = Constants.colorList[Random.Range(0, Constants.colorList.Count)];
+    }
+
+
 }

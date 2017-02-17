@@ -3,13 +3,11 @@ using System.Collections;
 
 public class Buff : Collectable {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    // TODO : Buff boostBar fulleme
+
+    private void OnEnable()
+    {
+        GetComponent<SpriteRenderer>().color = Color.yellow;
+        //GetComponent<SpriteRenderer>().color = Constants.colorList[Random.Range(0, Constants.colorList.Count)];
+    }
 }

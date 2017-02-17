@@ -3,29 +3,20 @@ using System.Collections;
 
 public class Collectable : MonoBehaviour {
 
-    //private float sizeMultiplier;
-    //private Vector2 position;
-
-    
-    // Use this for initialization
-    void Start () {
-	    //sizeMultiplier = Constants.NATURAL_PIECE_SIZE_MULTIPLIER;
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
- 
-    /*
-    public float getSizeMultiplier()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        return sizeMultiplier;
+        if (other.CompareTag("Natural"))
+        {
+            PoolManager.Instance.Despawn(other.gameObject);
+            PoolManager.Instance.Spawn("NaturalPiecesPool", Constants.MIN_VECTOR, Constants.MAX_VECTOR, Quaternion.identity);
+        }
+        else if (other.CompareTag("Buff"))
+        {
+            // TODO : buff ne olacak?
+        }
+        else if (other.CompareTag("Debuff"))
+        {
+            // TODO : debuff ? 
+        }
     }
-    public Vector2 getPosition()
-    {
-        return position;
-    }
-    */
 }
