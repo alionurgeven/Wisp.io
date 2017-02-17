@@ -1,15 +1,36 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class Experience : MonoBehaviour {
+public class Experience : MonoBehaviour
+{
+    private LevelManager LevelManager;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private float pointsToNextLevel;
+
+    private float experiencePoints;
+    private int level;
+
+    private void Start()
+    {
+        LevelManager = Managers.Instance.LevelManager;
+
+        pointsToNextLevel = LevelManager.GetLevelRequirement(level);
+    }
+
+    public void GainExperince(float amount)
+    {
+        experiencePoints += amount;
+
+        if (experiencePoints >= pointsToNextLevel)
+        {
+            LevelUp();
+        }
+    }
+
+    public void LevelUp()
+    {
+        level++;
+
+        pointsToNextLevel = LevelManager.GetLevelRequirement(level);
+    }
 }
