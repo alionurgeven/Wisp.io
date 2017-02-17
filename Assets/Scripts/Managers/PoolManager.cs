@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,6 +8,7 @@ public class PoolManager : MonoBehaviour
     [System.Serializable]
     public class ObjectPool
     {
+
         // Gameobject to pool
         public GameObject prefab;
 
@@ -32,10 +33,12 @@ public class PoolManager : MonoBehaviour
             GameObject pool = new GameObject("[" + poolName + "]");
 
             // Reference to the created instance
+
             GameObject clone;
 
             for (int i = 0; i < maximumInstances; i++)
             {
+
                 // Create the gameobject
                 clone = Instantiate(prefab);
 
@@ -43,14 +46,17 @@ public class PoolManager : MonoBehaviour
                 clone.SetActive(false);
                 clone.transform.parent = pool.transform;
 
+
                 objectList.Add(clone);
             }
         }
+
 
         /// <summary>
         /// Get the next gameobject that can be spawned from the pool
         /// </summary>
         /// <returns>Next gameobject to spawn</returns>
+
         public GameObject GetNextObject()
         {
             for (int i = 0; i < objectList.Count; i++)
@@ -64,10 +70,12 @@ public class PoolManager : MonoBehaviour
             return null;
         }
 
+
         // Properties
         public int MaximumInstances { get { return maximumInstances; } }
         public string PoolName { get { return poolName; } set { poolName = value; } }
     }
+
 
     // List to hold all the pools for the game
     public List<ObjectPool> pools;
@@ -110,6 +118,7 @@ public class PoolManager : MonoBehaviour
             return null;
         }
 
+
         // Get the next object from the pool
         GameObject clone = pool.GetNextObject();
 
@@ -119,6 +128,7 @@ public class PoolManager : MonoBehaviour
 
             return null;
         }
+
 
         // Spawn the gameobject
         clone.SetActive(true);
@@ -130,6 +140,7 @@ public class PoolManager : MonoBehaviour
 
         return clone;
     }
+
 
     /// <summary>
     /// Spawn the next gameobject from the given pool with the specified position and
@@ -151,11 +162,13 @@ public class PoolManager : MonoBehaviour
             clone.transform.position = position;
             clone.transform.rotation = rotation;
 
+
             return clone;
         }
 
         return null;
     }
+
 
     /// <summary>
     /// Spawn the next gameobject from the given pool to the random location between two
@@ -173,6 +186,7 @@ public class PoolManager : MonoBehaviour
         float y = Random.Range(minVector.y, maxVector.y);
         float z = Random.Range(minVector.z, maxVector.z);
         Vector3 newPosition = new Vector3(x, y, z);
+
 
         // Spawn the next gameobject
         return Spawn(poolName, newPosition, rotation);
@@ -194,6 +208,7 @@ public class PoolManager : MonoBehaviour
         }
         obj.SetActive(false);
     }
+
     //Vector3 spawnPosition;
     IEnumerator dieRoutine()
     {
@@ -210,6 +225,7 @@ public class PoolManager : MonoBehaviour
     {
         Invoke("Despawn", delay);
     }
+
 
     /// <summary>
     /// Get the object pool reference from the pool list with the given pool name
