@@ -37,4 +37,6 @@ public static class Constants {
     public static List<Color> colorList = new List<Color>();
     public static int MAX_NO_OF_NATURAL_PIECES = 250;
     public static int MAX_NO_OF_OTHER_PIECES = 5;
+
+    public static int MAX_NO_OF_ENEMIES = 49;
 }

@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
         {
             PoolManager.Instance.Spawn("DebuffPiecePool", Constants.MIN_VECTOR, Constants.MAX_VECTOR, Quaternion.identity);
         }
+        for (int i = 0; i < Constants.MAX_NO_OF_ENEMIES; i++)
+        {
+            PoolManager.Instance.Spawn("EnemyPool", Constants.MIN_VECTOR - Vector2.one*10, Constants.MAX_VECTOR - Vector2.one * 10, Quaternion.identity);
+        }
 
         /// end of hayati
         /// 
