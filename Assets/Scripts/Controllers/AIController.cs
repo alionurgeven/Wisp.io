@@ -38,6 +38,7 @@ public class AIController : MonoBehaviour
     public int GetScore() { return score; }
     public void SetScore(int foo) { score = foo; }
     /// 
+
     public void RandomMovement(Movement mov,Rigidbody2D rbD)
     {
         if (movementTimer >= movementDecisionTimer)
